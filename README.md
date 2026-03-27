@@ -2,7 +2,13 @@
 
 LumiShop is a Shopify app template focused on one commercial outcome: turning product images into lightweight product videos that can improve product-page engagement and conversion.
 
-This repository is scaffolded as a **JavaScript backend on Firebase Cloud Functions** so it can be deployed quickly, tested cheaply, and evolved later into a more distributed architecture.
+This repository now contains the early foundation for a **full-stack Shopify app**:
+
+- a JavaScript backend on Firebase Cloud Functions
+- an initial admin web scaffold for the embedded app experience
+- shared packages for future theme/video/business logic extraction
+
+It is designed to be deployed quickly, iterated cheaply, and evolved later into a more distributed architecture.
 
 ---
 
@@ -37,6 +43,7 @@ This repo starts with a production-minded backend template that lets you build:
 
 - **Runtime:** Node.js 22
 - **Backend:** Express on Firebase Cloud Functions v2
+- **Frontend:** React + Vite admin scaffold
 - **Validation:** Zod
 - **Admin SDK:** Firebase Admin
 - **Lint/Test:** ESLint + Vitest
@@ -67,40 +74,46 @@ These files explain the product direction, preferred repo evolution, implementat
 ```text
 LumiShop/
 ├── README.md
+├── package.json
 ├── firebase.json
 ├── .firebaserc
 ├── .gitignore
 ├── docs/
-│   └── architecture.md
-└── functions/
-    ├── package.json
-    ├── .env.example
-    ├── eslint.config.js
-    └── src/
-        ├── index.js
-        ├── app.js
-        ├── config/
-        │   └── env.js
-        ├── controllers/
-        │   ├── healthController.js
-        │   ├── shopifyController.js
-        │   └── videoController.js
-        ├── routes/
-        │   └── index.js
-        ├── services/
-        │   ├── templateService.js
-        │   └── videoService.js
-        ├── skills/
-        │   ├── eventStylingSkill.js
-        │   └── productThemeSkill.js
-        ├── templates/
-        │   └── defaultProductVideoTemplate.js
-        ├── workers/
-        │   └── renderWorker.js
-        ├── middleware/
-        └── utils/
-            ├── http.js
-            └── logger.js
+│   ├── architecture.md
+│   ├── roadmap.md
+│   └── skills.md
+├── apps/
+│   └── admin-web/
+│       ├── package.json
+│       ├── index.html
+│       ├── vite.config.js
+│       └── src/
+│           ├── App.jsx
+│           ├── main.jsx
+│           ├── styles.css
+│           ├── components/
+│           └── lib/
+├── functions/
+│   ├── README.md
+│   ├── package.json
+│   ├── .env.example
+│   ├── eslint.config.js
+│   └── src/
+│       ├── index.js
+│       ├── app.js
+│       ├── config/
+│       ├── controllers/
+│       ├── routes/
+│       ├── services/
+│       ├── skills/
+│       ├── templates/
+│       ├── workers/
+│       ├── middleware/
+│       └── utils/
+└── packages/
+    ├── shared/
+    ├── theme-engine/
+    └── video-core/
 ```
 
 ---
@@ -245,7 +258,8 @@ Before deploying, make sure:
 
 ## Recommended next build steps
 
-### Phase 1 — Backend foundation
+### Phase 1 — Full-stack foundation
+- [ ] add Shopify embedded app shell and real routing
 - [ ] add Shopify OAuth flow
 - [ ] verify Shopify webhook signatures
 - [ ] add Firestore/Postgres persistence
