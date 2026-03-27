@@ -1,0 +1,21 @@
+{% comment %}
+  LumiShop product detail video block
+  Intended placement: product detail page only
+{% endcomment %}
+
+{% if product %}
+  <div class="lumishop-product-video" data-product-id="{{ product.id }}">
+    <div class="lumishop-video-shell">
+      <div class="lumishop-video-poster">LumiShop clip placeholder</div>
+      <p class="lumishop-video-caption">Video for product detail page only.</p>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "LumiShop Product Video",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}

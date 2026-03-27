@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { SummaryCard } from './components/SummaryCard.jsx';
 import { ProductTable } from './components/ProductTable.jsx';
 import { JobList } from './components/JobList.jsx';
+import { VideoList } from './components/VideoList.jsx';
 import { StatusBanner } from './components/StatusBanner.jsx';
-import { fetchHealth, fetchJobs, fetchShops } from './lib/api.js';
+import { StorefrontPreviewCard } from './components/StorefrontPreviewCard.jsx';
+import { fetchHealth, fetchJobs, fetchShops, fetchVideos } from './lib/api.js';
 
 const products = [
   { title: 'Glow Serum', status: 'Ready', theme: 'Premium Soft' },
@@ -17,18 +19,25 @@ const fallbackJobs = [
   { id: 'job_1003', product: 'Coffee Grinder', status: 'processing' },
 ];
 
+const fallbackVideos = [
+  { id: 'video_job_1001', productTitle: 'Glow Serum', status: 'draft' },
+  { id: 'video_job_1002', productTitle: 'Linen Shirt', status: 'published' },
+];
+
 export default function App() {
   const [health, setHealth] = useState(null);
   const [jobs, setJobs] = useState(fallbackJobs);
   const [shops, setShops] = useState([]);
+  const [videos, setVideos] = useState(fallbackVideos);
 
   useEffect(() => {
     async function bootstrap() {
       try {
-        const [healthData, jobsData, shopsData] = await Promise.all([
+        const [healthData, jobsData, shopsData, videosData] = await Promise.all([
           fetchHealth(),
           fetchJobs(),
           fetchShops(),
+          fetchVideos(),
         ]);
 
         setHealth(healthData);
@@ -37,6 +46,9 @@ export default function App() {
         }
         if (Array.isArray(shopsData?.shops)) {
           setShops(shopsData.shops);
+        }
+        if (Array.isArray(videosData?.videos) && videosData.videos.length) {
+          setVideos(videosData.videos);
         }
       } catch (_error) {
         // keep UI working with fallback data until API is connected
@@ -54,7 +66,8 @@ export default function App() {
           <a href="#">Dashboard</a>
           <a href="#">Products</a>
           <a href="#">Jobs</a>
-          <a href="#">Themes</a>
+          <a href="#">Videos</a>
+          <a href="#">Storefront</a>
           <a href="#">Settings</a>
         </nav>
       </aside>
@@ -78,7 +91,7 @@ export default function App() {
 
         <section className="summary-grid">
           <SummaryCard label="Products synced" value="124" />
-          <SummaryCard label="Videos live" value="53" />
+          <SummaryCard label="Videos draft/live" value={String(videos.length)} />
           <SummaryCard label="Jobs queued" value={String(jobs.length)} />
           <SummaryCard label="Installed shops" value={String(shops.length)} />
         </section>
@@ -99,6 +112,18 @@ export default function App() {
             </div>
             <JobList jobs={jobs} />
           </div>
+        </section>
+
+        <section className="panel-grid lower-grid">
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Video publishing</h2>
+              <button>Publish</button>
+            </div>
+            <VideoList videos={videos} />
+          </div>
+
+          <StorefrontPreviewCard />
         </section>
       </main>
     </div>

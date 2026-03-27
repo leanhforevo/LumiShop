@@ -14,3 +14,8 @@ export async function fetchShops() {
   const response = await fetch(`${config.apiBaseUrl}/shops`);
   return response.json();
 }
+
+export async function fetchVideos() {
+  const response = await fetch(`${config.apiBaseUrl}/videos`);
+  return response.json();
+}

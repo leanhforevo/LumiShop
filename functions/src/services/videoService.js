@@ -1,5 +1,6 @@
 import { buildTemplateContext } from './templateService.js';
 import { saveJob } from './jobService.js';
+import { createVideoRecord } from './videoPublishService.js';
 
 export async function createVideoJob(product = {}) {
   const context = buildTemplateContext(product);
@@ -14,6 +15,10 @@ export async function createVideoJob(product = {}) {
   };
 
   await saveJob(job);
+  const video = await createVideoRecord({ job, product });
 
-  return job;
+  return {
+    ...job,
+    video,
+  };
 }

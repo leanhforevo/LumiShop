@@ -1,6 +1,6 @@
 # LumiShop
 
-LumiShop is a Shopify app template focused on one commercial outcome: turning product images into lightweight product videos that can improve product-page engagement and conversion.
+LumiShop is a Shopify app template focused on one commercial outcome: turning product images into lightweight product videos that can improve product-page engagement and conversion on the product detail page.
 
 This repository now contains the early foundation for a **full-stack Shopify app**:
 

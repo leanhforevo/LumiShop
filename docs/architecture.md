@@ -23,4 +23,5 @@ LumiShop is a Shopify-focused app that turns product images into lightweight con
 - Event styling skill
 - Product theme skill
 - Render worker
+- Product-detail storefront integration
 - Analytics and experiments
