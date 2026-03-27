@@ -16,6 +16,20 @@ button {
   cursor: pointer;
 }
 
+.status-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.status-banner > div {
+  background: #eef2ff;
+  color: #1f2937;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
 .app-shell {
   min-height: 100vh;
   display: grid;
