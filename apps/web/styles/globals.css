@@ -1,0 +1,214 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #120d0b;
+  color: #f8efe9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(196, 132, 77, 0.22), transparent 28%),
+    linear-gradient(180deg, #120d0b 0%, #1d1410 100%);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+  padding: 72px 24px 40px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.badge,
+.eyebrow {
+  display: inline-block;
+  color: #ffcf9d;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1.02;
+  margin: 0 0 18px;
+  max-width: 760px;
+}
+
+.hero-copy p,
+.aboutSection p,
+.menuCard p,
+.panelText {
+  color: rgba(248, 239, 233, 0.78);
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #c4844d, #ffcf9d);
+  color: #24150d;
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-card {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cupGlow {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 207, 157, 0.7), rgba(196, 132, 77, 0.08) 58%, transparent 72%);
+  filter: blur(10px);
+  position: absolute;
+}
+
+.hero-panel {
+  position: relative;
+  width: min(100%, 360px);
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.panelTitle {
+  color: #ffcf9d;
+  margin: 0 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-panel h3,
+.menuCard h3,
+.sectionHead h2,
+.aboutSection h2 {
+  margin: 0 0 12px;
+}
+
+.stats,
+.menuSection,
+.aboutSection {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 48px;
+}
+
+.stats div,
+.menuCard,
+.aboutSection {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+}
+
+.stats div {
+  padding: 22px;
+}
+
+.stats strong {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.stats span {
+  color: rgba(248, 239, 233, 0.7);
+}
+
+.menuSection {
+  padding-bottom: 24px;
+}
+
+.sectionHead {
+  margin-bottom: 18px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.menuCard {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.menuCard strong {
+  color: #ffcf9d;
+  white-space: nowrap;
+}
+
+.aboutSection {
+  margin-top: 28px;
+  margin-bottom: 56px;
+  padding: 28px;
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .stats,
+  .menuGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
+  .hero-copy h1 {
+    font-size: 40px;
+  }
+
+  .menuCard {
+    flex-direction: column;
+  }
+}
