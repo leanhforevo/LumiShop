@@ -5,8 +5,10 @@ LumiShop is a Shopify app template focused on one commercial outcome: turning pr
 This repository now contains the early foundation for a **full-stack Shopify app**:
 
 - a JavaScript backend on Firebase Cloud Functions
-- an initial admin web scaffold for the embedded app experience
+- a Shopify-style Polaris admin interface
+- a Next.js web frontend for marketing and future onboarding
 - shared packages for future theme/video/business logic extraction
+- provider integration scaffolding for KingMMO-style APIs
 
 It is designed to be deployed quickly, iterated cheaply, and evolved later into a more distributed architecture.
 
@@ -43,7 +45,7 @@ This repo starts with a production-minded backend template that lets you build:
 
 - **Runtime:** Node.js 22
 - **Backend:** Express on Firebase Cloud Functions v2
-- **Frontend:** React + Vite admin scaffold
+- **Frontend:** Polaris admin app + Next.js marketing frontend
 - **Validation:** Zod
 - **Admin SDK:** Firebase Admin
 - **Lint/Test:** ESLint + Vitest
@@ -83,16 +85,17 @@ LumiShop/
 │   ├── roadmap.md
 │   └── skills.md
 ├── apps/
-│   └── admin-web/
+│   ├── admin-web/
+│   │   ├── package.json
+│   │   ├── index.html
+│   │   ├── vite.config.js
+│   │   └── src/
+│   └── web/
 │       ├── package.json
-│       ├── index.html
-│       ├── vite.config.js
+│       ├── next.config.mjs
 │       └── src/
-│           ├── App.jsx
-│           ├── main.jsx
-│           ├── styles.css
-│           ├── components/
-│           └── lib/
+│           ├── app/
+│           └── components/
 ├── functions/
 │   ├── README.md
 │   ├── package.json
@@ -363,3 +366,14 @@ The best next step is:
 ## License
 
 Private project for now.
+
+
+## Updated stack direction
+
+The repo is now moving toward:
+- **Frontend marketing site:** Next.js
+- **Admin app:** Polaris-based React admin
+- **Backend:** Firebase Cloud Functions
+- **Primary structured data:** Supabase
+- **Additional signup/raw data:** MongoDB
+- **Provider integration:** KingMMO API wrapper

@@ -7,4 +7,10 @@ export const env = {
   shopifyEmbeddedAppUrl: process.env.SHOPIFY_EMBEDDED_APP_URL || '',
   assetBucket: process.env.ASSET_BUCKET || '',
   cdnBaseUrl: process.env.CDN_BASE_URL || '',
+  supabaseUrl: process.env.SUPABASE_URL || '',
+  supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
+  mongodbUri: process.env.MONGODB_URI || '',
+  mongodbDbName: process.env.MONGODB_DB_NAME || 'lumishop',
+  kingMmoApiKey: process.env.KINGMMO_API_KEY || '',
+  kingMmoBaseUrl: process.env.KINGMMO_BASE_URL || 'https://kingmmo.com/api',
 };

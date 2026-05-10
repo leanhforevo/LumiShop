@@ -1,7 +1,7 @@
 {
   "name": "lumishop",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "workspaces": [
     "apps/*",
     "packages/*",
@@ -11,6 +11,8 @@
     "dev:admin": "npm --workspace apps/admin-web run dev",
     "build:admin": "npm --workspace apps/admin-web run build",
     "lint:admin": "npm --workspace apps/admin-web run lint",
+    "dev:web": "npm --workspace apps/web run dev",
+    "build:web": "npm --workspace apps/web run build",
     "dev:functions": "npm --workspace functions run serve",
     "deploy:functions": "npm --workspace functions run deploy"
   }
